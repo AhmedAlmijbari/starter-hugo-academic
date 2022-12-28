@@ -1,22 +1,39 @@
-name: Push to GitHub Pages on push to main
+name: Deploy GitHub Pages
+
 on:
   push:
     branches:
-      - main
-jobs:
-  build:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v1
+      - main  # Set a branch name to trigger deployment
+  pull_request:
 
-      - name: Deploy the site
-        uses: AhmedAlmijbari/starter-hugo-academic
-        env:
-          HUGO_VERSION: 0.88.0
-          TARGET_REPO: AhmedAlmijbari/ahmedalmijbari.github.io
-          TARGET_BRANCH: main
-          TOKEN: ${{ secrets.TOKEN }}
-          HUGO_ARGS: '-t academic'
-          CNAME: ahmedalmijbari.github.io
+jobs:
+  deploy:
+    runs-on: ubuntu-20.04
+    permissions:
+      contents: write
+    concurrency:
+      group: ${{ github.workflow }}-${{ github.ref }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true  # Fetch any Git submodules (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo --minify
+
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        # If you're changing the branch from main, 
+        # also change the `main` in `refs/heads/main` 
+        # below accordingly.
+        if: ${{ github.ref == 'refs/heads/main' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
