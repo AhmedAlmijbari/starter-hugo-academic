@@ -12,7 +12,7 @@ jobs:
         uses: actions/checkout@v1
 
       - name: Deploy the site
-        uses: AhmedAlmijbari/starter-hugo-academic@main
+        uses: AhmedAlmijbari/starter-hugo-academic@master
         env:
           HUGO_VERSION: 0.88.0
           TARGET_REPO: AhmedAlmijbari/ahmedalmijbari.github.io
