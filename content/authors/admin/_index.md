@@ -1,34 +1,36 @@
 ---
 # Display name
-title: Alice Wu 吳恩達
+title: Ahmed Almijbari
 
 # Full name (for SEO)
-first_name: Alice
-last_name: Wu
+first_name: Ahmed
+last_name: Almijbari
 
 # Status emoji
 status:
-  icon: ☕️
+  icon: 🧠
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position/tagline
-role: Professor of Artificial Intelligence
+role: Msc Student and Research Intern
 
 # Organizations/Affiliations to show in About widget
 organizations:
-  - name: Stanford University
-    url: https://www.stanford.edu/
+  - name: Technical Univeristy of Munich
+    url: https://www.tum.de/
 
 # Short bio (displayed in user profile at end of posts)
-bio: My research interests include distributed robotics, mobile computing and programmable matter.
+bio: Reverse-engineering the human brain to undersand how the brain works, build robust intelligent systems, and use these technologies to help people with disabilities.
 
 # Interests to show in About widget
 interests:
-  - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+- Neuroengineering
+- Computational Neuroscience
+- Artificial Intelligences
+
+ 
 
 # Education to show in About widget
 education:

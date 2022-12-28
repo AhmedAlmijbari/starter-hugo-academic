@@ -5,23 +5,24 @@
 
 main:
   - name: Home
-    url: '#about'
+    url: /
     weight: 10
-  - name: Posts
-    url: '#posts'
-    weight: 20
   - name: Projects
-    url: '#projects'
-    weight: 30
-  - name: Talks
-    url: '#talks'
+    url: 'project/project'
     weight: 40
-  - name: Publications
-    url: '#featured'
+  - name: Posts
+    url: 'post/'
+    weight: 30
+  - name: Courses
+    url: 'courses/courses'
     weight: 50
-  - name: Contact
-    url: '#contact'
+  - name: Teaching
+    url: 'teaching/teaching'
     weight: 60
+  - name: Media
+    url: 'media/'
+    weight: 70
+
 
 # Link to a PDF of your resume/CV from the menu.
 # To enable, copy your resume/CV to `static/uploads/resume.pdf` and uncomment the lines below.
